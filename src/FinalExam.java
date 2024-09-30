@@ -19,9 +19,9 @@ public class FinalExam {
         int passedCount = 0;
         int highestMark = 0;
         String highestMarkedStudent = "";
-        for (int i = 0 ; i < numOfStudent ; i++){
+        for (int i = 0; i < numOfStudent; i++) {
             //Getting Name Input
-            System.out.print("Enter no."+ i +" Student name : ");
+            System.out.print("Enter no." + i + " Student name : ");
             name[i] = scanner.nextLine();
             //Getting Gender Input
             System.out.print("Enter Gender (m/f) : ");
@@ -37,23 +37,48 @@ public class FinalExam {
             mathMark[i] = scanner.nextInt();
             scanner.nextLine();
             //Calculating total mark
-            if(myanmarMark[i] >= 40 && englishMark[i] >= 40 && mathMark[i] >= 40){
+            if (myanmarMark[i] >= 40 && englishMark[i] >= 40 && mathMark[i] >= 40) {
                 examResult[i] = true;
                 passedCount++;
-            }else {
+            } else {
                 examResult[i] = false;
             }
             totalMark[i] = myanmarMark[i] + englishMark[i] + mathMark[i];
-            //Comparing Mark finding the highest
-            if(totalMark[i] > highestMark){
+            //Comparing Marks & finding the highest
+            if (totalMark[i] > highestMark) {
                 highestMark = totalMark[i];
                 highestMarkedStudent = name[i];
             }
-            String passedResult = examResult[i]? " (Passed)" : " (Failed)";
+            String passedResult = examResult[i] ? " (Passed)" : " (Failed)";
             System.out.println("Total Marks of " + name[i] + " is " + totalMark[i] + passedResult);
+            System.out.println(passedCount + " out of "+ numOfStudent + " student passed the exam!");
+
+            /** Getting Average **/
+            //Passed Rate
+            double passedRate = ((double) passedCount / numOfStudent) * 100;
+            System.out.println("Passed Rate : " + passedRate +"%");
+            //Average Mark (All Subject)
+            double allAverageMarks = calculateAverage(totalMark);
+            System.out.println("Average Mark (All Subject) : " + allAverageMarks);
+            //Average Myanmar Mark
+            double averageMyanmarMark = calculateAverage(myanmarMark);
+            System.out.println("Average Myanmar Mark : " + averageMyanmarMark);
+            //Average English Mark
+            double averageEnglishMark = calculateAverage(englishMark);
+            System.out.println("Average Myanmar Mark : " + averageEnglishMark);
+            //Average Myanmar Mark
+            double averageMathMark = calculateAverage(mathMark);
+            System.out.println("Average Myanmar Mark : " + averageMathMark);
+            //Retrieving the student with the highest mark
+            System.out.println(highestMarkedStudent + " got the highest mark with " + highestMark);
         }
-
-
-        //Calculating Average Mark
     }
+        //Calculating Average Mark
+        private static double calculateAverage(int[] marks){
+            double sum = 0;
+            for(double mark : marks){
+                sum += mark;
+            }
+            return sum / marks.length;
+        }
 }
