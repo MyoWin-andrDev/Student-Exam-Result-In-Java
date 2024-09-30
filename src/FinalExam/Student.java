@@ -54,5 +54,17 @@ public class Student {
     public void setMathMark(int mathMark) {
         this.mathMark = mathMark;
     }
-
+    public boolean hasPassed(){
+        boolean passCount = myanmarMark >= 40 && englishMark >= 40 && mathMark >= 40;
+        return passCount;
+    }
+    public int getTotalMark(){
+        int totalMark = myanmarMark + englishMark + mathMark;
+        return totalMark;
+    }
+    //Getting Exam Result
+    public String getExamResult(){
+        String result  = hasPassed()? " (Passed)" : " (Failed)";
+        return result;
+    }
 }
