@@ -17,7 +17,8 @@ public class FinalExam {
         int[] totalMark = new int[numOfStudent];
         boolean[] examResult = new boolean[numOfStudent];
         int passedCount = 0;
-        int totalCalculatedMark = 0;
+        int highestMark = 0;
+        String highestMarkedStudent = "";
         for (int i = 0 ; i < numOfStudent ; i++){
             //Getting Name Input
             System.out.print("Enter no."+ i +" Student name : ");
@@ -42,6 +43,17 @@ public class FinalExam {
             }else {
                 examResult[i] = false;
             }
+            totalMark[i] = myanmarMark[i] + englishMark[i] + mathMark[i];
+            //Comparing Mark finding the highest
+            if(totalMark[i] > highestMark){
+                highestMark = totalMark[i];
+                highestMarkedStudent = name[i];
+            }
+            String passedResult = examResult[i]? " (Passed)" : " (Failed)";
+            System.out.println("Total Marks of " + name[i] + " is " + totalMark[i] + passedResult);
         }
+
+
+        //Calculating Average Mark
     }
 }
