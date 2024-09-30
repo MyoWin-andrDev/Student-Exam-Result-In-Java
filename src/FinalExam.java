@@ -16,14 +16,32 @@ public class FinalExam {
         int[] mathMark = new int[numOfStudent];
         int[] totalMark = new int[numOfStudent];
         boolean[] examResult = new boolean[numOfStudent];
-
+        int passedCount = 0;
+        int totalCalculatedMark = 0;
         for (int i = 0 ; i < numOfStudent ; i++){
             //Getting Name Input
             System.out.print("Enter no."+ i +" Student name : ");
-            name[i] = scanner.next();
+            name[i] = scanner.nextLine();
             //Getting Gender Input
             System.out.print("Enter Gender (m/f) : ");
             gender[i] = scanner.nextLine().charAt(0);
+            //Getting Myanmar Mark
+            System.out.print("Enter " + name[i] + "'s Myanmar Mark : ");
+            myanmarMark[i] = scanner.nextInt();
+            //Getting English Mark
+            System.out.print("Enter " + name[i] + "'s English Mark : ");
+            englishMark[i] = scanner.nextInt();
+            //Getting Myanmar Mark
+            System.out.print("Enter " + name[i] + "'s Math Mark : ");
+            mathMark[i] = scanner.nextInt();
+            scanner.nextLine();
+            //Calculating total mark
+            if(myanmarMark[i] >= 40 && englishMark[i] >= 40 && mathMark[i] >= 40){
+                examResult[i] = true;
+                passedCount++;
+            }else {
+                examResult[i] = false;
+            }
         }
     }
 }
