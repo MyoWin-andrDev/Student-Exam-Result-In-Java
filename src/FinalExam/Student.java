@@ -6,16 +6,53 @@ public class Student {
     private int myanmarMark;
     private int englishMark;
     private int mathMark;
-    private int totalMark;
-    private boolean result;
 
-    public Student(String name , char gender, int myanmarMark, int englishMark, int mathMark, int totalMark, boolean result){
+    public Student(String name , char gender, int myanmarMark, int englishMark, int mathMark){
         this.name = name;
         this.gender = gender;
         this.myanmarMark = myanmarMark;
         this.englishMark = englishMark;
         this.mathMark = mathMark;
-        this.totalMark = totalMark;
-        this.result = result;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    public int getMyanmarMark() {
+        return myanmarMark;
+    }
+
+    public void setMyanmarMark(int myanmarMark) {
+        this.myanmarMark = myanmarMark;
+    }
+
+    public int getEnglishMark() {
+        return englishMark;
+    }
+
+    public void setEnglishMark(int englishMark) {
+        this.englishMark = englishMark;
+    }
+
+    public int getMathMark() {
+        return mathMark;
+    }
+
+    public void setMathMark(int mathMark) {
+        this.mathMark = mathMark;
+    }
+
 }
